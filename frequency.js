@@ -104,8 +104,25 @@ console.log(firstUniqChar('loveleetcode')); // 2
 
 /*
 Group Anagrams from a List of Strings
+Input: ["eat","tea","tan","ate","nat","bat"]
+Output: [["eat","tea","ate"],["tan","nat"],["bat"]]
 */
+const arrayStr = ["eat","tea","tan","ate","nat","bat"];
 
+function groupAnagrams(strs){
+    const strMap = {};
+    for (let word of strs){
+    const key = word.split('').sort().join('');
+    if(!strMap[key]) strMap[key] = []
+    
+    strMap[key].push(word)
+    
+        
+    }
+    return Object.values(strMap)
+}
+
+console.log(groupAnagrams(arrayStr))
 
 
 
