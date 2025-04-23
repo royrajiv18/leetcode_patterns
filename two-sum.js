@@ -16,14 +16,23 @@ function twoSum(nums, target) {
 }
 
 // Second approach - Optimized hash map approach
-function twoSum(nums, target) {
-let numObj = {};
-  for (let i = 0; i < nums.length; i++) {
-    let complement = target - nums[i];
-    if (numObj[complement] !== undefined) {
-      return [numObj[complement], i];
+const nums = [2, 7, 11, 15];
+const target = 13;
+
+const twoSum = (nums, target)=> {
+    const arrMap = {};
+    
+    for(let i = 0; i< nums.length; i++){
+        const complement = target - nums[i];
+        
+        if(arrMap.hasOwnProperty(complement)) {
+            return [arrMap[complement], i]
+        }
+        
+        arrMap[nums[i]] = i;
     }
-    numObj[nums[i]] = i;
-  }
+    return []
 }
+
+console.log(twoSum(nums, target)) // [0,2]
 
