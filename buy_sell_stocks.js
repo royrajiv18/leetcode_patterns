@@ -35,7 +35,7 @@ console.log(maxProfit(prices)) // 5
 
 /*
 Buy and Sell Stocks II
-You are given an array prices[], where prices[i] is the stock price on day i.
+You are given an array priceList[], where priceList[i] is the stock price on day i.
 
 You can:
 
@@ -44,17 +44,18 @@ Buy and sell as many times as you want (must sell before you buy again).
 Return the maximum profit.
 */
 
-function maxProfit(prices) {
-    let profit = 0;
-  
-    for (let i = 1; i < prices.length; i++) {
-      if (prices[i] > prices[i - 1]) {
-        profit += prices[i] - prices[i - 1]; // Take the gain
-      }
+const priceList = [1,2,3,4,5]
+
+const bestBuySell = (prices)=> {
+    let profit = 0
+    for(let i = 1; i< prices.length; i++){
+        if(prices[i]>prices[i-1]){
+        profit = profit + prices[i]-prices[i-1]
+        }
     }
-  
-    return profit;
-  }
+    return profit
+}
+console.log(bestBuySell(priceList));
 
 console.log(maxProfit([7, 1, 5, 3, 6, 4])); // 7 → 4 + 3
 console.log(maxProfit([1, 2, 3, 4, 5]));    // 4 → buy at 1, sell at 5
