@@ -17,3 +17,18 @@ const singleNumber = (nums)=> {
 }
 
 console.log(singleNumber(nums)) // 3
+
+// O(n*n) O(1)
+
+// Optimized approach using XOR
+
+const singleNumberOptimized = (nums) => {
+    let result = 0;
+    for (let num of nums) {
+        result ^= num; // XOR cancels out pairs
+    }
+    return result;
+}
+
+console.log(singleNumberOptimized(nums)) // 3
+// O(n), O(1)
